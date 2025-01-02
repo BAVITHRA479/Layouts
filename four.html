@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Layout</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "row1"
+                "row2"
+                "row3"
+                "row4"
+                "row5";
+        }
+
+        .row1 {
+            grid-area: row1;
+            background-color: blue;
+            padding: 20px;
+        }
+
+        .row2 {
+            grid-area: row2;
+            background-color: lightskyblue;
+            padding: 50px;
+        }
+
+        .row3 {
+            grid-area: row3;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .col1 {
+            background-color: orange;
+            padding: 50px;
+        }
+
+        .col2 {
+            background-color: violet;
+            padding: 50px;
+        }
+
+        .col3 {
+            background-color: red;
+            padding: 50px;
+        }
+
+        .row4 {
+            grid-area: row4;
+            background-color: aqua;
+            padding: 30px;
+        }
+
+        .row5 {
+            grid-area: row5;
+            background-color: gray;
+            padding: 70px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-areas: 
+                    "row1"
+                    "row2"
+                    "row5"
+                    "row4"
+                    "row3"; 
+            }
+
+            .row3 {
+                grid-template-columns: 1fr; 
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 1024px) {
+            .container {
+                grid-template-areas: 
+                    "row1"
+                    "row2"
+                    "row5"
+                    "row4 row3";
+            }
+
+            .row3 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .row4{
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-areas: 
+                    "row1"
+                    "row2"
+                    "row3"
+                    "row4"
+                    "row5"; 
+            }
+
+            .row3 {
+                grid-template-columns: 1fr 1fr 1fr; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="text-align: center;">
+        <div class="row1">Row 1</div>
+        <div class="row2">Row 2</div>
+        <div class="row3">
+            <div class="col1">Column 1</div>
+            <div class="col2">Column 2</div>
+            <div class="col3">Column 3</div>
+        </div>
+        <div class="row4">Row 4</div>
+        <div class="row5">Row 5</div>
+    </div>
+</body>
+</html>
